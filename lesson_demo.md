@@ -24,3 +24,5 @@ frame_3 = sprite_sheet.subsurface((frame_x, frame_y, frame_width, frame_height))
 
 ```
 __Visual Example:__
+
+## Let's Take a look
