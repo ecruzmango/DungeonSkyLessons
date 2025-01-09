@@ -1,9 +1,14 @@
 # Lesson 1.1: Creating and Importing Our Player
 * before we begin coding in python/pygame, we must learn how the program is able to read animations
 
-* pygame reads animations in rows of sheets.
+* pygame uses a **sprite sheet** - a single image that contains all the frames arranged in a row (it can also be in columns)
 
-> Example: A flipbook animation
+> <ins>Example</ins>: 
+Let's say we have a character that can walk to the right. The walking animation would have 8 frames. In the **sprite sheet**, these frames would be arranged in a single row. Let's assume each frame is 64X64. This would mean the entire sheet would be 512x64 pixels (8 frames * the width of 64 pixels)
+
+__Visual Example:__
+
+![alt text](ImageFolder/user_walk.png)
 
 
 
@@ -23,7 +28,6 @@ frame_y = 0  # First row starts at 0
 frame_3 = sprite_sheet.subsurface((frame_x, frame_y, frame_width, frame_height))
 
 ```
-__Visual Example:__
 
 
 
