@@ -12,7 +12,11 @@ __Visual Example:__
 
 
 
-> [!IMPORTANT] Please take a look at classes V:1.0.0:
+> [!IMPORTANT] 
+> Please take a look at classes V:1.0.0:
+
+>[!NOTE] 
+> To animate this in Pygame, we use a technique called "sprite sheet subsurface extraction"
 
 ```python
 # Let's say our sprite sheet is loaded as an image
@@ -29,6 +33,28 @@ frame_3 = sprite_sheet.subsurface((frame_x, frame_y, frame_width, frame_height))
 
 ```
 
+### WHY USE SPRITE SHEETS?
+1. <ins>Memory efficiency</ins> - loading one image is faster than loading many seperate files
+2. <ins>Organization</ins> - all the related animations are kept together
+3. <ins>Performance</ins> - Switching between frames is very quickly since the whole sheet is already in memory
+
+* when creating your own games, you will typically have a simple system to track which frame you are on and when to move to the next one
+
+```Python
+    class Player:
+        def __init__(self):
+            self.sprite_sheet = pygame.image.load("user_walk.png")
+            self.current_frame = 0
+            self.animation_speed = 0.1 # seconds per frame
+            self.animation_timer = 0
+        def update(self, dt): # dt is delta time (seconds since last frame)
+            # Update animation timer
+            self.animation_timer += dt
+            if self.animation_timer >= self.animation_speed:
+            # move to the next frame
+            self.current_frame = (self.current_frame + 1) % 8 # assuming 8 frames
+            self.animation_timer = 0
+```
 
 
-## Let's Take a look
+
